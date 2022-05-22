@@ -1,0 +1,6 @@
+.main-photos {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 0.25em;
+	padding: 0.5em;
+}

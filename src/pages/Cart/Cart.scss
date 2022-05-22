@@ -1,0 +1,37 @@
+.main-cart {
+	padding-inline: 3vw;
+	text-align: center;
+	color: var(--color-font-secondary);
+
+	&__icon,
+	&__button {
+		cursor: pointer;
+	}
+
+	&__total,
+	&__button {
+		font-weight: bold;
+	}
+
+	&__total {
+		text-align: right;
+		font-size: 2.5rem;
+	}
+
+	&__button {
+		display: flex;
+		justify-content: center;
+		margin: auto;
+		padding: 1em;
+		border-color: var(--color-border);
+		letter-spacing: 1px;
+
+		&:focus {
+			outline: none;
+		}
+
+		&:disabled {
+			border-color: var(--color-border-disabled);
+		}
+	}
+}

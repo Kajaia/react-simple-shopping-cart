@@ -1,0 +1,13 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--bg-header);
+	padding: 1em;
+	box-shadow: 0px 2px 10px -5px var(--shadow);
+
+	&__logo,
+	&__cart {
+		color: var(--color-font-primary);
+	}
+}

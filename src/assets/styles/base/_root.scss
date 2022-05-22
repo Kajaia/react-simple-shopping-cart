@@ -1,0 +1,29 @@
+:root {
+	/* Background Colors */
+	--bg-header: hsl(6, 86%, 69%);
+
+	/* Icon Colors */
+	--color-favorite: hsl(3, 81%, 58%);
+	--color-cart: hsl(186, 63%, 80%);
+
+	/* Font Color */
+	--color-font-primary: hsl(194, 87%, 97%);
+	--color-font-secondary: hsl(0, 0%, 0%);
+
+	/* Border Colors */
+	--color-border: hsl(0, 0%, 0%);
+	--color-border-disabled: lightgray;
+
+	/* Shadow */
+	--shadow: #150605;
+
+	/* Font Families */
+	--font-family: 'Press Start 2P', cursive;
+
+	/* Font Size */
+	--font-size-body: clamp(1.3rem, 1.225rem + 0.3125vw, 1.6rem);
+	--h1: clamp(2rem, 1.75rem + 1.0417vw, 3rem);
+
+	/* Font Weights */
+	--font-weight-400: 400;
+}

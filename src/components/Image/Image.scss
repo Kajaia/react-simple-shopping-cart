@@ -1,0 +1,29 @@
+.main-photos {
+	&__figure {
+		position: relative;
+	}
+
+	&__photo {
+		width: 100%;
+		height: 100%;
+	}
+
+	&__icon {
+		position: absolute;
+		font-size: 2rem;
+		z-index: 1;
+		cursor: pointer;
+
+		&--favorite,
+		&--favorite-fill {
+			inset: 2.5px auto auto 5px;
+			color: var(--color-favorite);
+		}
+
+		&--add,
+		&--cart {
+			inset: 2.5px 5px auto auto;
+			color: var(--color-cart);
+		}
+	}
+}
