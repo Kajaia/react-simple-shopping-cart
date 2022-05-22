@@ -4,6 +4,7 @@ import { Context } from '../../Context';
 import { CartItem } from '../../components/CartItem';
 
 import './Cart.scss';
+import toast from '../../helpers';
 
 export const Cart = _ => {
 	const { cartItems, emptyCart } = useContext(Context);
@@ -20,16 +21,22 @@ export const Cart = _ => {
 	));
 
 	const placeOrder = _ => {
-		cartItems.length
-			? setButtonText('Ordering...')
-			: setButtonText('You have no item in your cart.');
-		setTimeout(_ => setButtonText('Place Order'), 2000);
-		emptyCart();
+		if (!cartItems.length) {
+			toast('warning', 'No items in your cart!');
+		} else {
+			setButtonText('Ordering...');
+			setTimeout(_ => setButtonText('Place Order'), 2000);
+			emptyCart();
+		}
 	};
+
+	const itemWord = cartItems.length > 1 ? 'items' : 'item';
 
 	return (
 		<main className="main-cart">
-			<h1 className="main-cart__title">Check out</h1>
+			<h1 className="main-cart__title">
+				Check out: {cartItems.length} {itemWord}
+			</h1>
 			{cartItemElements}
 			<p className="main-cart__total">Total: {totalCostDisplay}</p>
 			<button className="main-cart__button" onClick={placeOrder}>

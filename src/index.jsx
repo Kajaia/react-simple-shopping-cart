@@ -5,6 +5,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { ContextProvider } from './Context';
 import { App } from './App';
 
+import 'remixicon/fonts/remixicon.css';
+import 'sweetalert2/src/sweetalert2.scss';
 import './assets/styles/index.scss';
 
 const rootElement = document.getElementById('root');

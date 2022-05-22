@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
+import toast from './helpers';
 
 const Context = createContext();
 
@@ -27,13 +28,20 @@ const ContextProvider = ({ children }) => {
 			)
 		);
 
-	const addToCart = newItem =>
+	const addToCart = newItem => {
 		setCartItems(prevItems => [...prevItems, newItem]);
+		toast('success', 'Added to cart!');
+	};
 
-	const removeFromCart = id =>
+	const removeFromCart = id => {
 		setCartItems(prevItems => prevItems.filter(item => item.id !== id));
+		toast('error', 'Removed from cart!');
+	};
 
-	const emptyCart = _ => setCartItems([]);
+	const emptyCart = _ => {
+		setCartItems([]);
+		if (cartItems.length) toast('success', 'Thanks for purchase!');
+	};
 
 	return (
 		<Context.Provider
