@@ -5,7 +5,7 @@ const Context = createContext();
 
 const ContextProvider = ({ children }) => {
 	const [allPhotos, setAllPhotos] = useState([]);
-	const [cartItems, setCartItems] = useState([]);
+	let [cartItems, setCartItems] = useState([]);
 
 	useEffect(_ => {
 		const getPhotos = async _ => {
@@ -28,18 +28,29 @@ const ContextProvider = ({ children }) => {
 			)
 		);
 
+	if (localStorage.getItem('cart'))
+		cartItems = JSON.parse(localStorage.getItem('cart'));
+
+	function storageUpdate(cart) {
+		localStorage.setItem('cart', JSON.stringify(cart));
+	}
+
 	const addToCart = newItem => {
-		setCartItems(prevItems => [...prevItems, newItem]);
+		cartItems.push(newItem);
+		setCartItems([...cartItems]);
+		storageUpdate([...cartItems]);
 		toast('success', 'Added to cart!');
 	};
 
-	const removeFromCart = id => {
-		setCartItems(prevItems => prevItems.filter(item => item.id !== id));
+	const removeFromCart = item => {
+		setCartItems(cartItems.filter(cart => cart.id !== item.id));
+		storageUpdate(cartItems.filter(cart => cart.id !== item.id));
 		toast('error', 'Removed from cart!');
 	};
 
 	const emptyCart = _ => {
 		setCartItems([]);
+		storageUpdate([]);
 		if (cartItems.length) toast('success', 'Thanks for purchase!');
 	};
 

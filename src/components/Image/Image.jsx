@@ -35,7 +35,7 @@ export const Image = ({ photo }) => {
 	const cartIconFill = (
 		<i
 			className="main-photos__icon main-photos__icon--cart ri-shopping-cart-fill cart"
-			onClick={_ => removeFromCart(photo.id)}
+			onClick={_ => removeFromCart(photo)}
 		></i>
 	);
 

@@ -18,7 +18,7 @@ export const CartItem = ({ item }) => {
 		<div className="main-cart__item">
 			<i
 				className={`main-cart__icon ${iconsClassName}`}
-				onClick={_ => removeFromCart(item.id)}
+				onClick={_ => removeFromCart(item)}
 				ref={ref}
 			></i>
 			<img className="main-cart__img" src={item.url} alt="" />

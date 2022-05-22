@@ -13,11 +13,9 @@ const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
 root.render(
-	<React.StrictMode>
-		<ContextProvider>
-			<Router>
-				<App />
-			</Router>
-		</ContextProvider>
-	</React.StrictMode>
+	<ContextProvider>
+		<Router>
+			<App />
+		</Router>
+	</ContextProvider>
 );
